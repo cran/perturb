@@ -8,7 +8,7 @@
 \usage{
 colldiag(mod, scale = TRUE, center = FALSE, add.intercept = TRUE)
 
-print.colldiag(x,dec.places=3,fuzz=NULL,fuzzchar=".",...)
+\method{print}{colldiag}(x,dec.places=3,fuzz=NULL,fuzzchar=".",...)
 }
 \arguments{
   \item{mod}{A model object or data-frame}

@@ -6,9 +6,10 @@
   \code{reclassify} is called by \code{\link{perturb}} to calculate reclassification probabilities for categorical variables. Use separately to experiment with reclassification probabilities.
 }
 \usage{
-reclassify(varname, pcnt = NULL, adjust = TRUE, bestmod = TRUE, min.val = .1, diag = NULL, unif = NULL, dist = NULL, assoc = NULL)
+reclassify(varname, pcnt = NULL, adjust = TRUE, bestmod = TRUE,
+min.val = .1, diag = NULL, unif = NULL, dist = NULL, assoc = NULL)
 
-print.reclassify(x, dec.places = 3, full = FALSE, ...)
+\method{print}{reclassify}(x, dec.places = 3, full = FALSE, ...)
 }
 \arguments{
   \item{varname}{a factor to be reclassified}
@@ -23,7 +24,7 @@ print.reclassify(x, dec.places = 3, full = FALSE, ...)
   \item{x}{a \code{reclassify} object to be printed}
   \item{dec.places}{number of decimal places to use when printing}
   \item{full}{if TRUE, some extra information is printed}
-  \item{\dots}{arguments to be passed on to or from other methods}
+  \item{\dots}{arguments to be passed on to or from other methods. Print options for class \code{matrix} may be used, e.g. \code{print.gap}}
 }
 
 \details{
@@ -127,7 +128,7 @@ Version 1 was not made available from CRAN and so I felt justified in not making
 }
 
 \seealso{
-\code{\link{perturb}}, \code{\link{reclassify.internal}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[Design]}\code{\link[Design]{vif}}
+\code{\link{perturb}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[Design]}\code{\link[Design]{vif}}
 }
 \examples{
 library(car)

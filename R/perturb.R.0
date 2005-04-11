@@ -1,8 +1,4 @@
 perturb <- function(mod,pvars=NULL,prange=NULL,ptrans=NULL,pfac=NULL,uniform=FALSE,niter=100) {
-	cutsp<-function(indx,tbl) {
-		findInterval(runif(1),tbl[indx,],rightmost.closed=TRUE)
-	}
-
 	if (is.null(mod$call$formula)) stop("First argument does not contain a formula")
 	stopifnot(is.list(pfac)||is.null(pfac))
 
@@ -94,6 +90,9 @@ perturb <- function(mod,pvars=NULL,prange=NULL,ptrans=NULL,pfac=NULL,uniform=FAL
 	class(result)<-"perturb"
 	result
 }
+cutsp<-function(indx,tbl) {
+	findInterval(runif(1),tbl[indx,],rightmost.closed=TRUE)
+}
 
 summary.perturb <-function(object,dec.places=3,full=FALSE,...) {
 	coeffs<-object$coeff.table
@@ -103,9 +102,6 @@ summary.perturb <-function(object,dec.places=3,full=FALSE,...) {
 	object$summ<-mysumm
 	object$dec.places<-dec.places
 	object$full<-full
-	dots<-substitute(expression(...))
-	dots<-sub("^expression\\(\(.*\)\\)$","\\1", deparse(dots))
-	object$dots<-dots
 	class(object)<-"summary.perturb"
 	object
 }
@@ -145,11 +141,11 @@ print.summary.perturb <-function(x,...) {
 	}
 	if (!is.null(x$reclassify.tables)) {
 		for (i in 1:length(x$reclassify.tables)) {
-			if (x$dots=="") print(x$reclassify.tables[[i]],dec.places=x$dec.places,full=x$full,...)
-			else eval(parse(text=paste("print(x$reclassify.tables[[i]],dec.places=x$dec.places,full=x$full,",x$dots,",...)")))
+			print(x$reclassify.tables[[i]],dec.places=x$dec.places,full=x$full)
 		}
 	}
+	# max number+decimal dec.places+ point+1 space
+	width<-max(nchar(trunc(x$summ)))+x$dec.places+2
 	cat("Impact of perturbations on coefficients:\n")
-	#print(round(x$summ,x$dec.places),...)
-	eval(parse(text=paste("print(round(x$summ,x$dec.places),",x$dots,",...)")))
+	print(noquote(formatC(x$summ,format="f",width=width,digits=x$dec.places)))
 }

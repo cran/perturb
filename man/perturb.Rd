@@ -2,17 +2,17 @@
 \alias{perturb}
 \alias{summary.perturb}
 \alias{print.summary.perturb}
-\alias{cutsp}
 \title{Perturbation analysis to evaluate collinearity}
 \description{
  Adds random noise to selected variables to evaluate collinearity. Also suitable for other models than linear regression and for categorical independent variables
 }
 \usage{
-perturb(mod, pvars = NULL, prange = NULL, ptrans = NULL, pfac = NULL, uniform = FALSE, niter = 100)
+perturb(mod, pvars = NULL, prange = NULL, ptrans = NULL,
+pfac = NULL, uniform = FALSE, niter = 100)
 
-summary.perturb(object,dec.places=3,full=FALSE,...)
+\method{summary}{perturb}(object,dec.places=3,full=FALSE,...)
 
-print.summary.perturb(x,...)
+\method{print.summary}{perturb}(x,...)
 }
 \arguments{
   \item{mod}{
@@ -38,7 +38,7 @@ print.summary.perturb(x,...)
   \item{x}{a \code{summary.perturb} object to be printed}
   \item{dec.places}{number of decimal places to use when printing}
   \item{full}{if TRUE, some extra information is printed}
-  \item{\dots}{arguments to be passed on to or from other methods}
+  \item{\dots}{arguments to be passed on to or from other methods. Print options for class \code{matrix} may be used, e.g. \code{print.gap}}
 }
 
 \details{
@@ -97,7 +97,7 @@ Use a list of lists to specify a model with more than one reclassification facto
 \code{\link{reclassify}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[Design]}\code{\link[Design]{vif}}
 }
 \examples{
-library(car)
+require(car)
 data(Duncan)
 attach(Duncan)
 m1<-lm(prestige~income+education)
