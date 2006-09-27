@@ -21,7 +21,7 @@ colldiag <- function(mod,scale=TRUE,center=FALSE,add.intercept=TRUE) {
 	svdX$d
 	condindx<-svdX$d[1]/svdX$d
 
-	Phi<-solve(diag(svdX$d),svdX$v)
+	Phi=svdX$v%*%diag(1/svdX$d)
 	Phi<-t(Phi^2)
 	pi<-prop.table(Phi,2)
 
