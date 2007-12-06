@@ -8,7 +8,7 @@ colldiag <- function(mod,scale=TRUE,center=FALSE,add.intercept=TRUE) {
 	else if (!is.null(mod$call$formula)) {
 		nms<-all.vars(terms(mod))
 		nms<-nms[-1] # delete the dependent variable
-		X<-sapply(nms,get,mode="numeric")
+		X<-mod$model[,nms]
 	}
 	X<-X[!is.na(apply(X,1,all)),] # delete missing cases
 	if (add.intercept) {

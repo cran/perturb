@@ -56,7 +56,6 @@ Colldiag is based on the Stata program \code{coldiag} by Joseph Harkness \email{
 # Belsley (1991). "Conditioning Diagnostics"
 # The Consumption Function (pp. 149-154)
 data(consumption)
-attach(consumption)
 
 ct1<-c(NA,c[-length(c)])
 

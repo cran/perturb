@@ -104,7 +104,7 @@ summary.perturb <-function(object,dec.places=3,full=FALSE,...) {
 	object$dec.places<-dec.places
 	object$full<-full
 	dots<-substitute(expression(...))
-	dots<-sub("^expression\\(\(.*\)\\)$","\\1", deparse(dots))
+	dots<-sub("^expression\\((.*)\\)$","\\1", deparse(dots))
 	object$dots<-dots
 	class(object)<-"summary.perturb"
 	object
