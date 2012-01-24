@@ -86,7 +86,7 @@ A second objection to the initial reclassification probabilities is that the pat
 
 The patterns of association used by reclassify are drawn from loglinear models for square tables, also known as \dQuote{mobility models} (Goodman 1984, Hout 1983). Many texts on loglinear modelling contain a brief discussion of such models as well. For unordered variables, a \dQuote{quasi-independent} pattern of association would be appropriate. Under quasi-independent association, the row variable is independent of the column variable if the diagonal cells are ignored.
 
-If the argument for \code{pcnt} was a scalar, \code{reclassify} fits a \dQuote{quasi-independent (constrained)} model. This model has a single parameter \code{diag} which indicates the log-odds of same versus different reclassification. This log-odds is the same for all categories. If the argument was of vector of length \eqn{n}, then a regular quasi-independence model is fitted with parameters \code{diag1} to \code{diag\emph{n}}. These parameters indicate the log-odds of same versus different category reclassification, which is different for each category. For both models, the reclassified category is independent of the original category if the diagonal cells are ignored.
+If the argument for \code{pcnt} was a scalar, \code{reclassify} fits a \dQuote{quasi-independent (constrained)} model. This model has a single parameter \code{diag} which indicates the log-odds of same versus different reclassification. This log-odds is the same for all categories. If the argument was of vector of length \eqn{n}, then a regular quasi-independence model is fitted with parameters \code{diag1} to \code{diag}\emph{n}. These parameters indicate the log-odds of same versus different category reclassification, which is different for each category. For both models, the reclassified category is independent of the original category if the diagonal cells are ignored.
 
 If the argument for \code{pcnt} was a vector of length \eqn{n^2}, \code{reclassify} fits two models, a \dQuote{quasi-distance model} and a \dQuote{quasi-uniform association} model, and selects the one with the best fit to the initial expected table. Both have the \code{diag} parameter of the \dQuote{quasi-independence (constrained)} model. An additional parameter is added to make short distance reclassification more likely than long distance reclassification. The quasi-uniform model is stricter: it makes reclassification less likely proportionately to the squared difference between the two categories. The distance model makes reclassification less likely proportionately to the absolute difference between the two categories.
 
@@ -112,7 +112,7 @@ This creates a square diagonal matrix called \code{wrk} with the same number of 
 
 \section{Imposing a pattern of association}{
 A table with given margins and a given pattern of association can be created by
-\itemize {
+\itemize{
 \item estimating a loglinear model of independence for a table with the desired margins
 \item while specifying the log pattern of association as an offset variable (cf. Kaufman & Schervish (1986), Hendrickx (2004).
 }

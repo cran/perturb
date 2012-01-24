@@ -1,0 +1,11 @@
+827314de046c5b6dd6ece7ecaedcde14 *DESCRIPTION
+9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
+0757dfa96d702074a7d1dec58caf505d *R/colldiag.R
+586b0a2735ee4333f1b870765bad1cb6 *R/perturb.R
+032dcea69cd06f473662aa1df5966aad *R/reclassify.R
+b62289b1ee7e1457c89a6a1e53e1d789 *data/consumption.dat
+92102b4cb1896676ed21c02154d8974f *data/consumption.r
+8d63d43557fb2ffe96b5396cb86df32a *man/colldiag.Rd
+9cfcfe5d71be6ba94e7e8cbd91653a5c *man/consumption.Rd
+8eb1a949d2759ff495935f79aebb476f *man/perturb.Rd
+b28672844f898347d6e79815a51868d3 *man/reclassify.Rd

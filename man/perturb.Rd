@@ -97,7 +97,7 @@ Use a list of lists to specify a model with more than one reclassification facto
 \code{\link{reclassify}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[Design]}\code{\link[Design]{vif}}
 }
 \examples{
-require(car)
+library(car)
 data(Duncan)
 attach(Duncan)
 m1<-lm(prestige~income+education)
