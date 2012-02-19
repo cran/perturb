@@ -42,7 +42,7 @@ pfac = NULL, uniform = FALSE, niter = 100)
 }
 
 \details{
-Perturb is a tool for assessing the impact of small random changes (perturbations) to variables on parameter estimates. It is an alternative for collinearity diagnostics such as \code{\link[car]{vif}} in the \pkg{car} package, \code{\link[Design]{vif}} in the \pkg{Design} package or \code{\link{colldiag}} in this package. Perturb is particularly useful for evaluating collinearity if interactions are present or nonlinear transformations of variables, e.g. a squared term. Perturb can show how the perturbations affect the estimates of a variable and terms derived from it whereas other collinearity diagnostics simply treat interactions and transformations as regular independent variables. Perturb is not limited to linear regression but can be used for all regression-like models. Perturb can also deal with categorical variables by randomly misclassifying them to assess the impact on parameter estimates.
+Perturb is a tool for assessing the impact of small random changes (perturbations) to variables on parameter estimates. It is an alternative for collinearity diagnostics such as \code{\link[car]{vif}} in the \pkg{car} package, \code{\link[rms]{vif}} in the \pkg{rms} package or \code{\link{colldiag}} in this package. Perturb is particularly useful for evaluating collinearity if interactions are present or nonlinear transformations of variables, e.g. a squared term. Perturb can show how the perturbations affect the estimates of a variable and terms derived from it whereas other collinearity diagnostics simply treat interactions and transformations as regular independent variables. Perturb is not limited to linear regression but can be used for all regression-like models. Perturb can also deal with categorical variables by randomly misclassifying them to assess the impact on parameter estimates.
 
 Perturb works by adding a small random \dQuote{perturbation} value to selected independent variables, then re-estimating the model. This process is repeated \emph{niter} times, after which a summary of the means, standard deviation, minimum and maximum of the parameter estimates is displayed. If collinearity is a serious problem in the data, then the estimates will be unstable and vary strongly.
 
@@ -69,12 +69,12 @@ Wiley.
 Belsley, D.A. (1991).
 \cite{Conditioning diagnostics, collinearity and weak data in regression}. New York: John Wiley & Sons.
 
-Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{http://www.xs4all.nl/~jhckx/perturb/}
+Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{http://home.wanadoo.nl/john.hendrickx/statres/perturb/perturb.pdf}
 }
-\author{John Hendrickx \email{John\_Hendrickx@yahoo.com}}
+\author{John Hendrickx \email{John_Hendrickx@yahoo.com}}
 
 \note{
-Perturb can be used with estimation procedures other than \code{\link{lm}}. On the other hand, collinearity is a result of extreme (multiple) correlation among independent variables. Another option is \code{\link[Design]{vif}} in the \pkg{Design} package or \code{\link{colldiag}}, which only uses the independent variables of a regression model. This will usually be a faster solution since maximum likelihood procedures require iterative estimation for each iteration of the perturbation analysis. It is possible though that certain procedures are more sensitive to collinearity than \code{\link{lm}}, in which case perturb will be the preferred solution.
+	Perturb can be used with estimation procedures other than \code{\link{lm}}. On the other hand, collinearity is a result of extreme (multiple) correlation among independent variables. Another option is \code{\link[rms]{vif}} in the \pkg{rms} package \code{\link[car]{vif}} in the \pkg{car} package, or \code{\link{colldiag}}, which use only the independent variables of a regression model. This will usually be a faster solution since maximum likelihood procedures require iterative estimation for each iteration of the perturbation analysis. It is possible though that certain procedures are more sensitive to collinearity than \code{\link{lm}}, in which case perturb could be a better solution.
 }
 
 \section{Categorical variables}{
@@ -94,7 +94,7 @@ Use a list of lists to specify a model with more than one reclassification facto
 }
 
 \seealso{
-\code{\link{reclassify}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[Design]}\code{\link[Design]{vif}}
+\code{\link{reclassify}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[rms]}\code{\link[rms]{vif}}
 }
 \examples{
 library(car)

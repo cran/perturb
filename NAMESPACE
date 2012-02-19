@@ -1,5 +1,6 @@
-# Default NAMESPACE created by R
-# Remove the previous line if you edit this file
+export(perturb,colldiag,reclassify,summary.perturb,print.summary.perturb)
 
-# Export all names
-exportPattern(".")
+S3method(summary, perturb)
+S3method(print, colldiag)
+S3method(print, reclassify)
+

@@ -6,11 +6,9 @@ colldiag <- function(mod,scale=TRUE,center=FALSE,add.intercept=TRUE) {
 		nms<-colnames(mod)
 	}
 	else if (!is.null(mod$call$formula)) {
-		nms<-all.vars(terms(mod))
-		nms<-nms[-1] # delete the dependent variable
-		X<-mod$model[,nms]
+		X<-mod$model[,-1] # delete the dependent variable
 	}
-	X<-X[!is.na(apply(X,1,all)),] # delete missing cases
+	X<-na.omit(X) # delete missing cases
 	if (add.intercept) {
 		X<-cbind(1,X) # add the intercept
 		colnames(X)[1]<-"intercept"

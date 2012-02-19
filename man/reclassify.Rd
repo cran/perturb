@@ -69,13 +69,13 @@ Goodman, Leo A. (1984). \cite{The analysis of cross-classified data having order
 
 Hendrickx, J. (2004). Using standardised tables for interpreting loglinear models. \cite{Quality & Quantity} 38: 603-620.
 
-Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{http://www.xs4all.nl/~jhckx/perturb/}
+Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{http://home.wanadoo.nl/john.hendrickx/statres/perturb/perturb.pdf}
 
 Hout, M. (1983). \cite{Mobility tables}. Beverly Hills: Sage Publications.
 
 Kaufman, R.L., & Schervish, P.G. (1986). Using adjusted crosstabulations to interpret log-linear relationships. \cite{American Sociological Review} 51:717-733
 }
-\author{John Hendrickx \email{John\_Hendrickx@yahoo.com}}
+\author{John Hendrickx \email{John_Hendrickx@yahoo.com}}
 
 \section{Adjusting the reclassification probabilities}{
 A problem with the initial reclassification probabilities created using \code{pcnt} is that the expected frequencies of the reclassified variable will not be the same as those of the original. Smaller categories will become larger in the expected frequencies, larger categories will become smaller. This can be seen in the column marginal of the initial table of expected frequencies in the \code{reclassify} output. This could have a strong impact on the standard errors of reclassified variables, particularly as categories differ strongly in size.
@@ -123,12 +123,8 @@ The expected table of the original by the reclassified variable is adjusted by c
 A small modification in procedure is that reclassify uses a model of equal main effects rather than independence. Since the pattern of association is always symmetric, the created table will then also be exactly symmetric with the frequency distribution of the original variable as row and column marginal.
 }
 
-\section{Changes from version 1}{
-Version 1 was not made available from CRAN and so I felt justified in not making version 2 entirely backward compatible. The \code{misclass} option has been dropped; replace \code{misclass=5)} by \code{pcnt=95,adjust=FALSE}. Replace \code{q=2} by \code{diag=log(2)} and \code{u=3} by \code{unif=log(3)}.
-}
-
 \seealso{
-\code{\link{perturb}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[Design]}\code{\link[Design]{vif}}
+\code{\link{perturb}}, \code{\link{colldiag}}, \code{[car]}\code{\link[car]{vif}}, \code{[rms]}\code{\link[rms]{vif}}
 }
 \examples{
 library(car)

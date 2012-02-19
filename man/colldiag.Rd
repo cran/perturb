@@ -44,32 +44,56 @@ Belsley, D.A. (1991).
 \cite{Conditioning diagnostics, collinearity and weak data in regression}.
 New York: John Wiley & Sons.
 }
-\author{John Hendrickx \email{John\_Hendrickx@yahoo.com}}
+\author{John Hendrickx \email{John_Hendrickx@yahoo.com}}
 \note{
 Colldiag is based on the Stata program \code{coldiag} by Joseph Harkness \email{joe.harkness@jhu.edu}, Johns Hopkins University.
 }
 
 \seealso{
-\code{\link{lm}}, \code{\link{scale}}, \code{\link{svd}}, \code{[car]}\code{\link[car]{vif}}, \code{[Design]}\code{\link[Design]{vif}}, \code{\link{perturb}}
+\code{\link{lm}}, \code{\link{scale}}, \code{\link{svd}}, \code{[car]}\code{\link[car]{vif}}, \code{[rms]}\code{\link[rms]{vif}}, \code{\link{perturb}}
 }
 \examples{
 # Belsley (1991). "Conditioning Diagnostics"
 # The Consumption Function (pp. 149-154)
 data(consumption)
 
-ct1<-c(NA,c[-length(c)])
+ct1 <- with(consumption, c(NA,cons[-length(cons)]))
 
 # compare (5.3)
-m1<-lm(c~ct1+dpi+r+d_dpi)
+m1 <- lm(cons ~ ct1+dpi+rate+d_dpi, data = consumption)
 anova(m1)
 summary(m1)
 
 # compare exhibit 5.11
-cor(cbind(ct1,dpi,r,d_dpi),use="complete.obs")
+with(consumption, cor(cbind(ct1, dpi, rate, d_dpi), use="complete.obs"))
 
 # compare exhibit 5.12
 cd<-colldiag(m1)
 cd
 print(cd,fuzz=.3)
+
+\dontrun{
+# Example of reading UCLA data files from 
+# http://www.ats.ucla.edu/stat/r/dae/rreg.htm
+library(foreign)
+elemapi <- read.dta("http://www.ats.ucla.edu/stat/data/elemapi2.dta")
+attach(elemapi)
+
+# Example of SAS collinearity diagnostics from
+# http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter2/sasreg2.htm
+# 2.4 Tests for Collinearity
+m2 <- lm(api00 ~ acs_k3+avg_ed+grad_sch+col_grad+some_col)
+summary(m2)
+library(car)
+vif(m2)
+
+library(perturb)
+cd2<-colldiag(m2,add.intercept=FALSE,center=TRUE)
+print(cd2,dec.places=5)
+
+# Same data, SPSS example at
+# http://www.ats.ucla.edu/stat/spss/webbooks/reg/chapter2/spssreg2.htm
+colldiag(m2,add.intercept=TRUE)
+}
 }
 \keyword{regression}

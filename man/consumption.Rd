@@ -10,10 +10,10 @@
   A data frame with 28 observations on the following 5 variables.
   \describe{
     \item{year}{1947 to 1974}
-    \item{c}{total consumption, 1958 dollars}
-    \item{r}{the interest rate (Moody's Aaa)}
+    \item{cons}{total consumption, 1958 dollars}
+    \item{rate}{the interest rate (Moody's Aaa)}
     \item{dpi}{disposable income, 1958 dollars}
-    \item{d\_dpi}{annual change in disposable income}
+    \item{d_dpi}{annual change in disposable income}
   }
 }
 \source{pp 149-154 of Belsley (1991), Conditioning Diagnostics}

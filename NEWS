@@ -1,0 +1,9 @@
+Version 2.05, 18FEB2012
+- Changes to colldiag, could not handle column names with embedded spaces
+- Changed links from package Design to rms
+- Changed "enhances" car to suggests
+- Cleaned up Rd files, underscores were escaped but no longer necessary
+- Added NAMESPACE
+- consumption.dat renamed consumption.tab
+- changed consumption$c to consumption$cons, consumption$r to consumption$rate
+Version 2.04, 26JUL2010
