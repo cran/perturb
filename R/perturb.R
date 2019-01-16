@@ -13,7 +13,7 @@ perturb <- function(mod,pvars=NULL,prange=NULL,ptrans=NULL,pfac=NULL,uniform=FAL
 	ncases<-length(get(nms[1]))
 	frm<-deparse(formula(mod),width.cutoff = 500)
 	result$formula<-frm
-	allb<-coefficients(mod)
+	allb<-coefs(mod)
 
 	# modify the formula
 	if (length(pvars) > 0) {
@@ -85,14 +85,26 @@ perturb <- function(mod,pvars=NULL,prange=NULL,ptrans=NULL,pfac=NULL,uniform=FAL
 		}
 		# re-estimate the model using the perturbed variables
 		mod2<-eval(mod$call)
-		# collect the coefficients
-		allb<-rbind(allb,coefficients(mod2))
+		# collect the coefficients, coefs has a special method for multinom
+		allb<-rbind(allb,coefs(mod2))
 	}
 	# "allb" is the rowname value for the first row of allb; remove
 	rownames(allb)<-NULL
 	result$coeff.table<-allb
 	class(result)<-"perturb"
 	result
+}
+
+coefs <- function(x, ...) {
+  UseMethod("coefs")
+}
+
+coefs.default <- function(obj) {
+  coefficients(obj)
+}
+
+coefs.multinom <- function(obj) {
+  gdata::unmatrix(coefficients(obj),byrow=TRUE)
 }
 
 summary.perturb <-function(object,dec.places=3,full=FALSE,...) {

@@ -69,7 +69,7 @@ Goodman, Leo A. (1984). \cite{The analysis of cross-classified data having order
 
 Hendrickx, J. (2004). Using standardised tables for interpreting loglinear models. \cite{Quality & Quantity} 38: 603-620.
 
-Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{http://home.wanadoo.nl/john.hendrickx/statres/perturb/perturb.pdf}
+Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{https://www.researchgate.net/publication/235994590_Collinearity_involving_ordered_and_unordered_categorical_variables}
 
 Hout, M. (1983). \cite{Mobility tables}. Beverly Hills: Sage Publications.
 

@@ -1,3 +1,6 @@
+Versioon 2.06, 30JUL2018
+- Updated NAMESPACE
+- Updated URLs in .Rd files
 Version 2.05, 18FEB2012
 - Changes to colldiag, could not handle column names with embedded spaces
 - Changed links from package Design to rms

@@ -69,7 +69,7 @@ Wiley.
 Belsley, D.A. (1991).
 \cite{Conditioning diagnostics, collinearity and weak data in regression}. New York: John Wiley & Sons.
 
-Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{http://home.wanadoo.nl/john.hendrickx/statres/perturb/perturb.pdf}
+Hendrickx, John, Ben Pelzer. (2004). \cite{Collinearity involving ordered and unordered categorical variables}. Paper presented at the RC33 conference in Amsterdam, August 17-20 2004. Available at \url{https://www.researchgate.net/publication/235994590_Collinearity_involving_ordered_and_unordered_categorical_variables}
 }
 \author{John Hendrickx \email{John_Hendrickx@yahoo.com}}
 

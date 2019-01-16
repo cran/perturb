@@ -74,13 +74,13 @@ print(cd,fuzz=.3)
 
 \dontrun{
 # Example of reading UCLA data files from 
-# http://www.ats.ucla.edu/stat/r/dae/rreg.htm
+# https://stats.idre.ucla.edu/r/webbook/regression-with-rchapter-4-beyond-ols/
 library(foreign)
-elemapi <- read.dta("http://www.ats.ucla.edu/stat/data/elemapi2.dta")
+elemapi <- read.dta("https://stats.idre.ucla.edu/stat/stata/webbooks/reg/elemapi.dta")
 attach(elemapi)
 
 # Example of SAS collinearity diagnostics from
-# http://www.ats.ucla.edu/stat/sas/webbooks/reg/chapter2/sasreg2.htm
+# https://stats.idre.ucla.edu/sas/webbooks/reg/
 # 2.4 Tests for Collinearity
 m2 <- lm(api00 ~ acs_k3+avg_ed+grad_sch+col_grad+some_col)
 summary(m2)
@@ -90,10 +90,6 @@ vif(m2)
 library(perturb)
 cd2<-colldiag(m2,add.intercept=FALSE,center=TRUE)
 print(cd2,dec.places=5)
-
-# Same data, SPSS example at
-# http://www.ats.ucla.edu/stat/spss/webbooks/reg/chapter2/spssreg2.htm
-colldiag(m2,add.intercept=TRUE)
 }
 }
 \keyword{regression}
